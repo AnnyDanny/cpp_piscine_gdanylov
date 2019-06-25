@@ -4,19 +4,21 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include "ContactData.hpp"
 
 
 class MyAwesome {
     public:
-        MyAwesome() {};
-        ~MyAwesome() {};
-    std::string first_name, last_name, nickname, login;
-    std::string postal_address, email_address, phone_number;
-    std::string birthday_date, favorite_meal, underwear_color, darkest_secret;
+    	MyAwesome(ContactData data);
+    	MyAwesome();
+        ~MyAwesome();
 
-    void add_information();
-    void show_information();
+    void show_information(const std::string &str);
     void print_information();
+
+	private:
+		void PrintField(const std::string &str);
+		ContactData _data;
 };
 
 #endif
