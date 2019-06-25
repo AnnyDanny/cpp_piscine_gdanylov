@@ -37,7 +37,7 @@ void MyAwesome::print_information() {
 void MyAwesome::PrintField(const std::string &str) {
     std::cout << std::setw(10);
     if (str.size() > 10) {
-        std::cout << str.substr(0, 9) << ".|"; 
+        std :: cout << str.substr (0, 9) + ". |";
     }
     else {
         std::cout << str << '|';

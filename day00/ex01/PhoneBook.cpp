@@ -7,6 +7,7 @@ std::string nickname("Enter nickname");
 std::string login("Enter login");
 std::string p_address("Enter postal address");
 std::string email("Enter email address");
+std::string phone("Enter phone number");
 std::string b_day("Enter birthday date");
 std::string meal("Enter favorite meal");
 std::string u_color("Enter underwear color");
@@ -47,6 +48,7 @@ void PhoneBook::Add() {
 	GetField(login, &data.login);
 	GetField(p_address, &data.postal_address);
 	GetField(email, &data.email_address);
+	GetField(phone, &data.phone_number);
 	GetField(b_day, &data.birthday_date);
 	GetField(meal, &data.favorite_meal);
 	GetField(u_color, &data.underwear_color);
@@ -64,7 +66,7 @@ void PhoneBook::Search() {
 		_contacts[i].show_information(std::to_string(i));
 	}
 	std::cout << "Choose number of contacts" << std::endl;
-	uint8_t index;
+	int index;
 	std::cin >> index;
     if (std::cin.fail())
         exit(0);
@@ -97,8 +99,7 @@ PhoneBook::Command PhoneBook::getCommand() {
         std::cin >> command;
         if (std::cin.fail())
             exit (0);
-            // cin.ignore();
-            // cout<<"Wrong! Enter a #!"<<endl;
+		std :: cin.ignore (100,'\n'); 
         if (command != "ADD" && command != "SEARCH" && command != "EXIT") {
             std::cout << "Incorrect command, try again!" << std::endl;
             continue ;

@@ -4,13 +4,13 @@
 #include <iostream>
 #include <cstdlib>
 
-class Pony{
+class Pony {
 public:
-	Pony(std::string str1, std::string name, bool can_fly);
+	Pony(std::string describe, std::string name, bool magicalPony);
 	~Pony();
-	std::string str1;
-	std::string name:
-	bool can_fly;
+	std::string describe;
+	std::string name;
+	bool magicalPony;
 };
 
 #endif
