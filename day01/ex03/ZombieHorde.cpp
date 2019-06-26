@@ -6,15 +6,8 @@
 
 ZombieHorde::ZombieHorde(int N)
 {
-	system("echo \"\033[0;31m\"");
 	std::cout << "Beware Zombie Horde is being created!!!" << std::endl;
-
-	system("echo \"\033[0m\"");
-
-
 	_N = N;
-
-	system("echo \"\033[0;32m\"");
 
 	ZombieHorde::_zombie_horde = new Zombie[_N];
 	int i;
@@ -26,20 +19,16 @@ ZombieHorde::ZombieHorde(int N)
 		i++;
 	}
 	std::cout << std::endl;
-	system("echo \"\033[0m\"");
-	
 }
 
 ZombieHorde::~ZombieHorde()
 {
-	system("echo \"\033[0;31m\"");
 	std::cout << "All zombies are going to die right now!!!" << std::endl;
-	system("echo \"\033[0m\"");
 	delete [] _zombie_horde;
 }
 
 
-void			ZombieHorde::announce( void )
+void ZombieHorde::announce( void )
 {
 	for (int i = 0; i < _N; i++ ) {
 		_zombie_horde[i].announce();

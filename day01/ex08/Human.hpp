@@ -4,8 +4,6 @@
 #include <iostream>
 
 class Human {
-
-
 	private:
 		void meleeAttack(std::string const & target);
 		void rangedAttack(std::string const & target);

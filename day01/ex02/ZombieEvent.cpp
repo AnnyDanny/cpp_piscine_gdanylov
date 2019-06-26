@@ -12,9 +12,6 @@ ZombieEvent::~ZombieEvent() {
 
 void			ZombieEvent::setZombieType(Zombie* new_zombie)
 {
-
-	system("echo \"\033[0m\"");
-
 	std::cout << "What is your Zombie?" << std::endl;
 	std::cin >> new_zombie->type;
 	if (std::cin.fail())
@@ -47,15 +44,11 @@ std::string ZombieEvent::RandomName()
 	return rand_res;
 }
 
-
 int					ZombieEvent::get_Rand_Int(unsigned int from)
 {
-
 	int	i = (rand() % from);
-
 	return ( (i >= 0) ? i : 0 );
 }
-
 
 std::string ZombieEvent::RandomType()
 {
@@ -67,15 +60,8 @@ std::string ZombieEvent::RandomType()
 Zombie* ZombieEvent::randomChump()
 {
 	Zombie *rand_zombie;
-
-	system("echo \"\033[1;32m\"");
-
-
 	std::string name_r(RandomName());
 	std::string type_r(RandomType());
 	rand_zombie = new Zombie(name_r, type_r);
-	system("echo \"\033[0m\"");
 	return rand_zombie;
-
 }
-
