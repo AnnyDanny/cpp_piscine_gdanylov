@@ -11,7 +11,7 @@ class GameEngine {
 		~GameEngine();
 
 		void run();
-		void checkrColosion();
+		void checkColosion();
 
 	private:
 		void readInput();

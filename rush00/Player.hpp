@@ -2,10 +2,16 @@
 #define PLAYER_HPP
 
 
+#include "Entity.hpp"
 
 class Player : public Entity {
-	
-	void Move(direction);
-}
+    public:
+        Player();
+        Player(int x, int y);
+        void moveLeft();
+        void moveRight();
+        void moveUp();
+        void moveDown();
+};
 
 #endif
