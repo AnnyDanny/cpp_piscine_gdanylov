@@ -57,7 +57,7 @@ std::string FragTrap::get_name()  const
 
 
 FragTrap::~FragTrap() {
-	std::cout << "Destructor" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 

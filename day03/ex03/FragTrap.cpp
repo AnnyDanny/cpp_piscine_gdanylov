@@ -37,7 +37,7 @@ FragTrap::FragTrap(FragTrap const & copy) : ClapTrap() {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "Destructor" << std::endl;
+	std::cout << "FragTrap Destructor" << std::endl;
 	return ;
 }
 

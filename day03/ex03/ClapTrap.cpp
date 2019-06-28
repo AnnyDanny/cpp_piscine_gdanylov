@@ -6,20 +6,20 @@ ClapTrap::ClapTrap() : hit_points(100), max_hit_points(100), energy_points(100),
 						melAttackDam(30), rangAttackDam(20), armorDamRed(5) {
 	this->level = 1;
 	this->dead = false;
-	std::cout << "Default constructor: engine started." << std::endl;
+	std::cout << "ClapTrap Default constructor: engine started." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string usname) : hit_points(100), max_hit_points(100), energy_points(100), max_energy_points(100),
 						melAttackDam(30), rangAttackDam(20), armorDamRed(5) {
 	name = usname;
 	this->dead = false;
-	std::cout << "Name Constructor: what is this guy?" << std::endl;
+	std::cout << "ClapTrap Name Constructor: what is this guy?" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & copy) : hit_points(100), max_hit_points(100), energy_points(100), max_energy_points(100),
 						melAttackDam(30), rangAttackDam(20), armorDamRed(5) {
 	*this = copy;
-	std::cout << "Copy Constructor: Next starting." << std::endl;
+	std::cout << "ClapTrap Copy Constructor: Next starting." << std::endl;
 }
 
 int ClapTrap::get_hitPoints() const {
@@ -57,7 +57,7 @@ std::string ClapTrap::get_name()  const
 
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor" << std::endl;
+	std::cout << "ClapTrap Destructor" << std::endl;
 	return ;
 }
 
