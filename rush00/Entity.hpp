@@ -1,34 +1,20 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
-// class Entity {
-// public:
-// 	int getX(int x);
-// 	int getY(int y);
-// 	Entity();
-// 	virtual ~Entity();
-// private:
-// 	int backgroundColor;
-// 	int color;
-// 	wchar_t symbol;
-// 	void draw();
-
-// // protected:
-//         int x;
-//         int y;
-// };
-
-
-
-
-
+#include "Visual.hpp"
 
 class Entity {
     public:
+    	Entity(Visual *vis, int x, int y, char pic);
+        virtual ~Entity();
         int getX();
         int getY();
-
+        bool isInsideWindow();
+        void draw();
+        void del();
     protected:
+        Visual *_visual;
+    	char _pic;
         int _x;
         int _y;
 };

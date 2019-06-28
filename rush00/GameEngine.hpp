@@ -1,27 +1,29 @@
 #ifndef GAMEENGINE_HPP
 #define GAMEENGINE_HPP
 
-enum Command{
-	RIGHT, LEFT, UP, DOWN, SHOOT, PAUSE, UNKNOWN
-};
+#include "Array.hpp"
+#include "Bullet.hpp"
+#include "Common.hpp"
+#include "Player.hpp"
+#include "Visual.hpp"
+#include <cstdint>
 
 class GameEngine {
-	public:
-		GameEngine();
-		~GameEngine();
+  public:
+    GameEngine();
+    ~GameEngine();
+    void run();
+    void checkColosion();
 
-		void run();
-		void checkColosion();
+  private:
+    void updateMoving();
+    bool readInput();
 
-	private:
-		void readInput();
-
-		Player player;
-		Enemies enemies[10];
-		Input input;
-		Draw draw;
-		Bullets *bullets;
-		Visual visual;
+    Visual _visual;
+    Player _player;
+    // Enemies enemies[10];
+    Array<Bullet> _bullets;
+    uint32_t _cycle;
 };
 
 #endif

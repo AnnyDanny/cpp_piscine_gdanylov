@@ -1,40 +1,37 @@
 #include "Player.hpp"
 
-
-
-
-Player::Player() {
-    _x = 5;
-    _y = 5;
-    // std::cout << "Default constructor called\n";
-}
-
-Player::Player(int x, int y) {
-    _x = x;
-    _y = y;
-    // std::cout << "Parameterized constructor called\n";
+Player::Player(Visual *visual) : Entity(visual, visual->getWidth() / 2, visual->getHeight() - 1, '*') {
 }
 
 void Player::moveLeft() {
-    _x--;
+    if (_visual->isInsideWindow(_x - 1, _y)) {
+        del();
+        _x--;
+        draw();
+    }
 }
 
 void Player::moveRight() {
-    _x++;
+    if (_visual->isInsideWindow(_x + 1, _y)) {
+        del();
+        _x++;
+        draw();
+    }
 }
 
 void Player::moveUp() {
-    _y--;
+    if (_visual->isInsideWindow(_x, _y - 1)) {
+        del();
+        _y--;
+        draw();
+    }
 }
 
 void Player::moveDown() {
-    _y++;
+    if (_visual->isInsideWindow(_x, _y + 1)) {
+        del();
+        _y++;
+        draw();
+    }
 }
 
-int Entity::getX() {
-    return _x;
-}
-
-int Entity::getY() {
-    return _y;
-}
