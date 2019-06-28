@@ -1,9 +1,13 @@
 #ifndef SORCERER_HPP
 #define SORCERER_HPP
 
+#include <iostream>
+#include "Victim.hpp"
+
+
 class Sorcerer {
     public:
-    Sorcerer(std::cout << _name << ", " << title << "is born!" std::endl;);
+    Sorcerer(std::string name, std::string title);
 	~Sorcerer();
     Sorcerer(const Sorcerer &copy);
 

@@ -1,13 +1,13 @@
 #include "Peon.hpp"
 
-Peon::Peon() : Victim() {
-    “Zog zog.”
+Peon::Peon(std::string name) : Victim(name) {
+   std::cout  << "Zog zog." << std::endl;
 }
 
 Peon::~Peon() {
-    “Bleuark...”
+    std::cout  << "Bleuark..." << std::endl;
 }
 
-void Peon::getPolymorphed() {
-    "NAME has been turned into a pink pony !"
+void Peon::getPolymorphed() const {
+    std::cout  << _name << " has been turned into a pink pony !"  << std::endl;
 }
