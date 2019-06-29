@@ -35,3 +35,13 @@ void Player::moveDown() {
     }
 }
 
+bool Player::checkCollisions(Array<Ptr<Enemy> >& enemies){
+    for (int i = 0; i < enemies.size(); i++) {
+        if (enemies[i]->getX() == _x && enemies[i]->getY() == _y) {
+            enemies.erase(i);
+            return true;
+        }
+    }
+    return false;
+}
+

@@ -16,10 +16,11 @@ class Visual {
     void clear();
     int getWidth();
     int getHeight();
+    void PrintScope(int killedEnemies, int HP);
 
   private:
     WINDOW *windowFight;
-    // WINDOW *windowTimer;
+    WINDOW *scoreWin;
     int _columns;
     int _rows;
 };

@@ -1,6 +1,8 @@
 #include "Visual.hpp"
+#include <chrono>
 #include <cstdlib>
 #include <stdexcept>
+#include <thread>
 
 Visual::Visual() : windowFight(nullptr), _columns(0), _rows(0) {
     WINDOW *mainWin = initscr();
@@ -14,10 +16,12 @@ Visual::Visual() : windowFight(nullptr), _columns(0), _rows(0) {
     init_pair(2, COLOR_BLUE, COLOR_BLACK);
     init_pair(3, COLOR_CYAN, COLOR_BLACK);
     getmaxyx(mainWin, _columns, _rows);
-    windowFight = newwin(_columns, _rows, 0, 0);
+    _columns -= 5;
+    windowFight = newwin(_columns, _rows, 5, 0);
     _columns--;
     _rows--;
-    if (windowFight == nullptr) {
+    scoreWin = newwin(4, _rows, 0, 0);
+    if (windowFight == nullptr || scoreWin == nullptr) {
         throw std::runtime_error("Failed to create window");
     }
     keypad(windowFight, true);
@@ -26,6 +30,13 @@ Visual::Visual() : windowFight(nullptr), _columns(0), _rows(0) {
     wborder(windowFight, 42, 42, 42, 42, 42, 42, 42, 42);
     wrefresh(windowFight);
     wattron(windowFight, COLOR_PAIR(2));
+}
+
+void Visual::PrintScope(int killedEnemies, int HP) {
+    mvwprintw(scoreWin, 0, 0, "killedEnemies %d :", killedEnemies);
+    mvwprintw(scoreWin, 1, 0, "HP %d :", HP);
+    wrefresh(scoreWin);
+
 }
 
 Visual::~Visual() {

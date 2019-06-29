@@ -2,6 +2,7 @@
 #define ENTITY_HPP
 
 #include "Visual.hpp"
+#include <cstddef>
 
 class Entity {
     public:

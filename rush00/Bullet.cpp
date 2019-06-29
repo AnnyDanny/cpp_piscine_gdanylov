@@ -1,10 +1,9 @@
 #include "Bullet.hpp"
-#include <cstddef>
 
 Bullet::Bullet() : Entity(nullptr, 0, 0, '\'') {
 }
 
-Bullet::Bullet(Visual *vis, int x, int y) : Entity(vis, x, y, '\'') {
+Bullet::Bullet(Visual* vis, int x, int y) : Entity(vis, x, y, '\'') {
     draw();
 }
 
@@ -18,6 +17,17 @@ bool Bullet::move() {
     if (_visual->isInsideWindow(_x, _y)) {
         draw();
         return true;
+    }
+    return false;
+}
+
+bool Bullet::checkCollisions(Array<Ptr<Enemy> >& enemies) {
+    for (int i = 0; i < enemies.size(); i++) {
+        if (enemies[i]->getX() == _x && enemies[i]->getY() == _y) {
+            enemies.erase(i);
+            del();
+            return true;
+        }
     }
     return false;
 }

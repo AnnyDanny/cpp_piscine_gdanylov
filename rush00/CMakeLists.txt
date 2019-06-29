@@ -9,7 +9,9 @@ add_executable(${PROJECT_NAME}
         GameEngine.cpp
         Player.cpp
         Bullet.cpp
-        Visual.cpp)
+        Enemy.cpp
+        Visual.cpp
+        Comet.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${CURSES_LIBRARIES})
 
