@@ -1,11 +1,13 @@
 #ifndef TACTICALMARINE_HPP
 #define TACTICALMARINE_HPP
 
+#include "ISpaceMarine.hpp"
+
 class TacticalMarine : public ISpaceMarine
 {
 public:
-		TacticalMarine();
-       virtual ~TacticalMarine() {}
+	TacticalMarine();
+       virtual ~TacticalMarine();
        virtual ISpaceMarine* clone() const;
        virtual void battleCry() const;
        virtual void rangedAttack() const;

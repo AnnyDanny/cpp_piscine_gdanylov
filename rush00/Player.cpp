@@ -45,3 +45,14 @@ bool Player::checkCollisions(Array<Ptr<Enemy> >& enemies){
     return false;
 }
 
+void Player::draw() {
+    _visual->draw(_x, _y, '/');
+    _visual->draw(_x + 1, _y, '|');
+    _visual->draw(_x + 2, _y, '\\');
+}
+
+void Player::del() {
+    _visual->del(_x, _y);
+    _visual->del(_x + 1, _y);
+    _visual->del(_x + 2, _y);
+}

@@ -1,11 +1,13 @@
-#ifndef ASSULTTERMINATOT_HPP
-#define ASSULTTERMINATOT_HPP
+#ifndef ASSAULTTERMINATOT_HPP
+#define ASSAULTTERMINATOT_HPP
 
-class AssultTerminator : public ISpaceMarine
+#include "ISpaceMarine.hpp"
+
+class AssaultTerminator : public ISpaceMarine
 {
 public:
-		AssultTerminator();
-       virtual ~AssultTerminator() {}
+	AssaultTerminator();
+       virtual ~AssaultTerminator();
        virtual ISpaceMarine* clone() const;
        virtual void battleCry() const;
        virtual void rangedAttack() const;

@@ -11,8 +11,8 @@ class Entity {
         int getX();
         int getY();
         bool isInsideWindow();
-        void draw();
-        void del();
+        virtual void draw();
+        virtual void del();
     protected:
         Visual *_visual;
     	char _pic;

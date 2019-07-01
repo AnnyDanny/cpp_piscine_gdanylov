@@ -1,29 +1,29 @@
 #include "AssaultTerminator.hpp"
+#include <iostream>
 
-AssultTerminator::AssultTerminator() {
+AssaultTerminator::AssaultTerminator() {
 	std::cout << "* teleports from space *" <<std::endl;
 	
 }
 
-AssultTerminator::~AssultTerminator() {
+AssaultTerminator::~AssaultTerminator() {
 	std::cout << "I’ll be back .." <<std::endl;
-	
 }
 
-ISpaceMarine* AssultTerminator::clone() const {
-	AssultTerminator *tactical = new AssultTerminator;
+ISpaceMarine* AssaultTerminator::clone() const {
+	AssaultTerminator *tactical = new AssaultTerminator;
 	*tactical = *this;
 	return tactical;
 }
 
-void AssultTerminator::battleCry(){
+void AssaultTerminator::battleCry() const{
 	std::cout << "This code is unclean. PURIFY IT !" <<std::endl;
 }
 
-void AssultTerminator::rangedAttack(){
+void AssaultTerminator::rangedAttack() const{
 	std::cout << "* does nothing *" <<std::endl;
 }
 
-void AssultTerminator::meleeAttack(){
+void AssaultTerminator::meleeAttack() const{
 	std::cout << "* attacks with chainfists *" <<std::endl;
 }

@@ -4,6 +4,7 @@
 class ISpaceMarine
 {
 public:
+       // ISpaceMarine() {};
        virtual ~ISpaceMarine() {}
        virtual ISpaceMarine* clone() const = 0;
        virtual void battleCry() const = 0;

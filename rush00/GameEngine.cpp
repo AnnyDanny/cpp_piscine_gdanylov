@@ -30,7 +30,7 @@ bool GameEngine::readInput() {
             _player.moveDown();
             break;
         case SHOOT:
-            _bullets.push(Bullet(&_visual, _player.getX(), _player.getY() - 1));
+            _bullets.push(Bullet(&_visual, _player.getX() + 1, _player.getY() - 1));
             break;
         // case PAUSE:
         case EXIT:

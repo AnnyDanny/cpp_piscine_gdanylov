@@ -1,11 +1,11 @@
-#include "ISquad.hpp"
 #include "Squad.hpp"
+#include <cstddef>
 
 Squad::Squad() : _unitCount(0), _size(10),  _SpaceMarine(new ISpaceMarine*[10]) {
 
 }
 
-Squad::Squad(ISquad const &copy) {
+Squad::Squad(Squad const &copy) {
 	_unitCount = copy._unitCount;
 	_size = copy._size;
 	_SpaceMarine = new ISpaceMarine*[_size];
@@ -27,11 +27,11 @@ Squad & Squad::operator=(Squad const &over) {
 			delete _SpaceMarine[i];
 		}
 		delete[] _SpaceMarine;
-		_unitCount = copy._unitCount;
-		_size = copy._size;
+		_unitCount = over._unitCount;
+		_size = over._size;
 		_SpaceMarine = new ISpaceMarine*[_size];
 		for (int i = 0; i < _unitCount; i++) {
-			_SpaceMarine[i] = copy._SpaceMarine[i];
+			_SpaceMarine[i] = over._SpaceMarine[i];
 		}
 	}
 	return *this;
@@ -45,7 +45,7 @@ ISpaceMarine* Squad::getUnit(int index) const {
 	if (index >= 0 && index < _unitCount) {
 		return _SpaceMarine[index];
 	}
-	return NULL;
+	return nullptr;
 }
 
 int Squad::push(ISpaceMarine* p) {

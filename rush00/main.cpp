@@ -4,10 +4,10 @@
 #include "GameEngine.hpp"
  #include <curses.h>
 #include "Player.hpp"
-
-// g++ Enemy.cpp Entity.cpp GameEngine.cpp Player.cpp Visual.cpp main.cpp -lncurses
+// #include <clocale>
 
 int main() {
+	// std::cout << "Локаль: " << setlocale(LC_ALL,NULL) << std::endl;
 	try {
 		GameEngine gameEngine;
 		gameEngine.run();

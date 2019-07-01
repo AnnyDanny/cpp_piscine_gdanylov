@@ -14,6 +14,8 @@ class Player : public Entity {
     void moveUp();
     void moveDown();
     bool checkCollisions(Array<Ptr<Enemy> > &enemies);
+    void draw();
+    void del();
 };
 
 #endif
