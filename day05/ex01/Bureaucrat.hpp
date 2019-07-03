@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <sstream>
 #include <fstream>
+#include "Form.hpp"
 
 #define RED "\033[1;31m"
 #define GREEN "\033[1;32m"
@@ -30,6 +31,7 @@ class Bureaucrat {
         int getGrade();
         void IncrGrade();
         void DecrGrade();
+        void signForm(Form &form);
 
         class GradeTooHighException : public std::exception {
             public:

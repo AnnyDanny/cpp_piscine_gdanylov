@@ -1,7 +1,8 @@
 #include "Bureaucrat.hpp"
+#include <iostream>
 
 int main() {
-    std::cout << CYAN << "Incorrect low case" << NORMAL << std::endl;
+    std::cout << CYAN << "Name1 low case" << NORMAL << std::endl;
 
     try {
         Bureaucrat case0("incorrect low", 0);
