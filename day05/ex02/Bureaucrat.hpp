@@ -1,61 +1,47 @@
 #ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <string>
-#include <ctime>
-#include <iomanip>
-#include <sstream>
-#include <fstream>
-#include "Form.hpp"
+# include <iostream>
+# include <exception>
+# include "Form.hpp"
 
-#define RED "\033[1;31m"
-#define GREEN "\033[1;32m"
-#define CYAN "\033[1;36m"
-#define PINK "\033[1;35m"
-#define GREEN "\033[1;32m"
-#define NORMAL "\033[0m"
-#define BLUE "\033[1;24m"
+class Form;
 
-class Bureaucrat {
-    private:
-        std::string const _name;
-        int _grade;
-    public:
-        Bureaucrat();
-        Bureaucrat(std::string name, int grade);
-        ~Bureaucrat();
-        Bureaucrat(Bureaucrat &copy);
-        Bureaucrat & operator=(Bureaucrat &over);
-        std::string getName() const;
-        int getGrade();
-        void IncrGrade();
-        void DecrGrade();
-        void signForm(Form &form);
+class Bureaucrat
+{
+private:
+	std::string const _name;
+	int _grade;
+public:
+	Bureaucrat(std::string name, int grade);
+	~Bureaucrat();
+	
+	std::string const &	getName() const;
+	int	getGrade() const;
+	void	signForm(Form & form);
+	void	executeForm(Form const & form);
+	Bureaucrat & operator+=(int n);
+	Bureaucrat & operator-=(int n);
 
-        class GradeTooHighException : public std::exception {
-            public:
-            GradeTooHighException();
-            ~GradeTooHighException() throw();
-            GradeTooHighException(const GradeTooHighException &copy);
-            GradeTooHighException & operator=(GradeTooHighException const &over);
-            virtual const char* what() const throw();
+	class GradeTooHighException : public std::exception
+	{
+	public:
+		GradeTooHighException();
 
-        };
+		char const * what() const throw();
+		
+	};
 
-        class GradeTooLowException : public std::exception {
-            public:
-            GradeTooLowException();
-            ~GradeTooLowException() throw();
-            GradeTooLowException(const GradeTooLowException &copy);
-            GradeTooLowException & operator=(GradeTooLowException const &over);
-            virtual const char* what() const throw();
-        };
+	class GradeTooLowException : public std::exception
+	{
+	public:
+		GradeTooLowException();
 
-
-
+		char const * what() const throw();
+		
+	};
 };
 
-std::ostream & operator<<(std::ostream &o, Bureaucrat &over);
+std::ostream & operator<<(std::ostream & os, Bureaucrat const & tmp);
 
 #endif
